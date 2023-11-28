@@ -1,0 +1,18 @@
+
+
+.footer_container{
+    height: 10vh;
+    width: 100vw;
+    position: absolute;
+    bottom: 0;
+    background-color: var(--foreground-pale-dogwood);
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.footer_container div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

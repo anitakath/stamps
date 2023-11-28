@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background-platinum: #E8E6E9;
+  --background-feldgrau: #3A4F41;
+  --foreground-pale-dogwood: #DEC3BE;
+  --font-rose-red: #B9314F;
+  --font-rosy-brown: #D5A18E;
+}
+
+
+
+
+.cardImage{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.cardImageHovered{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border: 2px solid red;
+    
+}
+
+

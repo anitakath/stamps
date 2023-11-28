@@ -1,0 +1,26 @@
+
+
+.app_container{
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    background-color: var(--background-platinum);
+}
+
+
+.header_container{
+    height: 8vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.link{
+    margin: 0 20px;
+    padding: 2px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
