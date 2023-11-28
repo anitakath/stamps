@@ -1,0 +1,25 @@
+
+
+.container{
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.user_profile{
+    height: 80%;
+    width: 90vw;
+    background-color: var(--foreground-pale-dogwood);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.lastUsedCard{
+    width: 80%;
+    height: 90%;
+    background-color: var(--font-rosy-brown);
+}

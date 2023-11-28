@@ -5,7 +5,8 @@ import Image from 'next/image'
 
 
 //REDUX
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { login } from '@/store/authSlice';
 
 
 //COMPONENTS
@@ -21,14 +22,23 @@ export default function Home() {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn)
   console.log(isLoggedIn)
 
-  console.log(isLoggedIn)
+  const dispatch = useDispatch();
+
+
+  const loginHandler = () =>{
+    dispatch(login())
+  }
+
+
+
   return (
     <Layout>
-      {!isLoggedIn && <Welcome />}
+      {isLoggedIn && <Welcome />}
 
 
-      {isLoggedIn && (
+      {!isLoggedIn && (
         <div>
+          <button className="btn" onClick={loginHandler}> speed login </button>
           <Login />
           <Preview />
         </div>

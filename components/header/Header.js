@@ -1,5 +1,5 @@
 
-
+import { useState } from 'react';
 import Link from 'next/link';
 
 //STYLES
@@ -14,15 +14,47 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 const Header = () =>{
 
-    return (
-      <div className={styles.header_container}>
-        <Link href="/impressum" className={styles.link}>
+  const [ showSettings, setShowSettings] = useState(false)
+
+  const settingsHandler = () =>{
+    if(showSettings === false){
+      setShowSettings(true)
+    } else if( showSettings === true){
+      setShowSettings(false)
+    }
+  }
+
+ 
+
+  /*
+   <Link href="/settings" className={styles.link} >
           <FontAwesomeIcon icon={faBars} />
         </Link>
+        */
+
+    return (
+      <div className={styles.header_container}>
+        <button className={styles.link} onClick={settingsHandler}>
+          <FontAwesomeIcon icon={faBars} />
+        </button>
 
         <Link href="/search" className={styles.link}>
           <FontAwesomeIcon icon={faMagnifyingGlass} />
         </Link>
+
+
+
+        <div className={ showSettings ? styles.openedSettings : styles.closedSettings}> 
+          <button onClick={settingsHandler} className={styles.settingsBtn}> x </button>
+
+          <p> IMPRESSUM </p>
+          <p> SEITE NEU LADEN </p>
+          <p> GUTSCHEINCODES </p>
+          <p> BENACHRICHTIGUNG </p>
+        </div>
+
+
+
       </div>
     );
 }
