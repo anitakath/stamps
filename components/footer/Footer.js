@@ -1,5 +1,7 @@
 
 
+import { useState } from 'react';
+
 import Link from 'next/link';
 
 //FONT AWESOME
@@ -11,11 +13,38 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 //STYLES
 import styles from '../../styles/Layout/Footer.module.css'
+import modal from "../../styles/components/Modal.module.css";
+
+//COMPONENTS
+import Modal from '../modal/Modal';
 
 const Footer = () =>{
 
+
+
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+
+    const openModal = () => {
+      setModalIsOpen(true);
+    };
+
+    const closeModal = () => {
+      setModalIsOpen(false);
+    };
+
     return (
       <div className={styles.footer_container}>
+        <Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
+          <div className={modal.container} onClick={closeModal}>
+            <div className={modal.closeBtnContainer}>
+              <button onClick={closeModal} className={modal.closeBtn}> close </button>
+            </div>
+            
+            <div className={modal.activeCardToBeStamped}>
+              card, ready to be stamped
+            </div>
+          </div>
+        </Modal>
 
         <div>
           <Link href="/meine-karten">
@@ -24,9 +53,9 @@ const Footer = () =>{
         </div>
 
         <div>
-          <Link href="/stamp">
+          <button onClick={openModal}>
             <FontAwesomeIcon icon={faStamp} />
-          </Link>
+          </button>
         </div>
 
         <div>
@@ -34,7 +63,6 @@ const Footer = () =>{
             <FontAwesomeIcon icon={faUser} />
           </Link>
         </div>
-        
       </div>
     );
 }

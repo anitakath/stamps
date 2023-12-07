@@ -1,0 +1,76 @@
+
+
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    height: 78vh;
+    margin-top: 10px;
+}
+
+.form h3{
+    margin: 5px 0px;
+}
+
+
+.form label{
+    display: none;
+}
+
+.form input{
+    margin: 4px 0px;
+    height: 40px;
+    padding-left: 5px;
+    cursor: pointer;
+    background-color: rgba(255,255,255, 0.8);
+    color: var(--font-rose-red);
+}
+.form input::placeholder {
+  color: var(--font-rose-red);
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.form input:focus{
+    outline: none;
+}
+
+
+.privacyErrorMessage{
+    color: grey;
+    margin-left: 10px;
+}
+
+.link{
+    color: var(--font-rose-red);
+}
+
+
+.registerBtn{
+    background-color: var(--foreground-pale-dogwood);
+    color: var(--font-rose-red);
+    font-weight: bolder;
+    letter-spacing: 1px;
+    height: 60px;
+    margin: 10px 0px;
+}
+
+.errorContainer{
+    transition: 0.4s ease;
+    height: 20px;
+    margin-bottom: 10px;
+}
+
+.errorMessage{
+    color: red;
+}
+
+.slidesContainer{
+    display: flex;
+    margin: 4px 0px;
+}

@@ -8,13 +8,21 @@ app.listen(PORT, () => {
 
 
 export default function handler(req, res) {
+
+
+  /*
     if(req.method !== 'POST'){
         return res.status(405).json({message: 'Method not allowed'})
-    }
+    }*/
     
   
     if (req.method === "POST") {
-      const { email, password } = req.body;
+      const user = req.body;
+
+      const {firstName, lastName, email, adress, postalcode} = req.body
+
+     /* const { email, password } = req.body;
+     
 
      
 
@@ -50,10 +58,10 @@ export default function handler(req, res) {
     if (user.password !== password) {
       return res.status(401).json({ message: "Invalid email or password" });
     }
- 
+ */
     
 
-      return res.status(200).json({ message: req.body });
+      return res.status(200).json({ firstName, lastName});
     }
 }
 

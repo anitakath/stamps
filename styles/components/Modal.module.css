@@ -1,0 +1,136 @@
+
+
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    
+}
+
+
+.modalContainer{
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    background: var(--foreground-pale-dogwood);
+    box-shadow: 5px 5px 5px grey;
+}
+
+
+
+
+
+
+
+
+
+/* --------------------meine-karten-----------------------------*/
+
+
+.cardSearchContainer{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+    
+.searchField{
+    display: flex;
+    position: relative;
+}
+
+.searchField input{
+    background: transparent;
+    border-bottom: 2px solid black;
+    padding-left: 5px;
+    cursor: pointer;
+    transition: 0.4s ease;
+    margin: 5px;
+}
+
+.searchField input:hover{
+    border-bottom: 2px solid var(--background-platinum);
+}
+
+
+.searchField input:focus{
+    outline: none;
+}
+
+.searchField input::placeholder{
+    color: var(--font-rose-red); 
+}
+
+.searchField button{
+    position: absolute;
+    right: 8px;
+    bottom: 6px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+
+.closeBtn{
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    font-weight: bolder;
+}
+
+.closeBtn:hover{
+    transition: 0.4s ease;
+    color: var(--font-rose-red);
+}
+
+
+
+.searchOutputField{
+    margin: 10px 20px;
+    min-height: 400px;
+    overflow: scroll;
+    border-bottom: 2px solid var(--background-feldgrau);
+    transition: 0.4s ease;
+}
+
+
+
+.searchOutputField li{
+    height: 40px;
+    margin: 10px 0px;
+    background: var(--background-platinum);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: var(--font-rose-red);
+    box-shadow: 1px 0px 1px grey;
+}
+
+.searchOutputField li:hover{
+    transition: 0.4s ease;
+    background: var( --font-rose-red);
+    color: var(--font-rosy-brown);
+}
+
+/* ----------------------------- FOOTER -----------------------------*/
+
+.activeCardToBeStamped{
+    width: 70vw;
+    height: 80vh;
+    background: var(--foreground-pale-dogwood);
+    box-shadow: 0px 1px 4px grey;
+}
+
+.closeBtnContainer{
+    width: 70vw;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 15px;
+    padding-bottom: 2px;
+}

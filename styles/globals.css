@@ -4,6 +4,7 @@
 
 :root {
   --background-platinum: #E8E6E9;
+  --background-platinum-lighter: rgba(232, 230, 233, 0.5);
   --background-feldgrau: #3A4F41;
   --foreground-pale-dogwood: #DEC3BE;
   --font-rose-red: #B9314F;
@@ -12,10 +13,9 @@
 
 
 .btn{
-  border: 2px solid red;
   position: relative;
   left: 20px;
-  width: 300px;
+  width:100vw;
 }
 
 .cardImage{

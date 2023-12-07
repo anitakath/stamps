@@ -3,14 +3,14 @@
 .container{
     width: 100vw;
     height: 82vh;
-    background-color: var(--background-feldgrau);
+    background-color: var(--background-platinum);
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .container h1{
-    color: var(--font-rose-red);
+    color: var(--font-rosy-brown);
     font-size: 1.2rem;
     letter-spacing: 1px;
     font-weight: bolder;
@@ -18,8 +18,11 @@
 }
 
 .userField{
-    border: 2px solid red;
     width: 90vw;
     height: 70vh;
 }
 
+.link{
+    color: var(--font-rose-red);
+    font-weight: bolder;
+}

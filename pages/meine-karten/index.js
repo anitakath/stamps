@@ -1,13 +1,21 @@
 
 import { useEffect, useState } from "react";
+
+
 import Image from "next/image";
+import Link from "next/link";
 
 //COMPONENTS
 import Layout from "@/components/Layout";
+import Modal from "@/components/modal/Modal";
+
 
 
 //STYLES
 import styles from '../../styles/Pages/MyCards.module.css'
+import modal from '../../styles/components/Modal.module.css'
+
+
 
 //FONT AWESOME
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -18,21 +26,24 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 //REDUX
 import { useDispatch, useSelector } from "react-redux";
-import { addCard } from "@/store/cardsSlice";
+import { addCard, setCardData, fetchCards,selectCards } from "@/store/cardsSlice";
 
 
 
 const MyCards = () =>{
   const dispatch = useDispatch();
 
+  const cardItems = useSelector((state) => state.cards.cardData);
+  const cards = useSelector(selectCards);
+
+  console.log(cardItems);
+  console.log(cards)
+
   // ----------------------------- SELECT YEAR ------------------------
 
   const currYear = new Date().getFullYear();
-  console.log(currYear);
 
   const [date, setDate] = useState(currYear);
-
-  console.log(date);
 
   const handleYear = (e) => {
     if (e === "further") {
@@ -52,25 +63,20 @@ const MyCards = () =>{
 
   // ----------------------------- FETCH CARDS DATA ------------------------
 
-  const [cardData, setCardData] = useState();
+  //const [cardData, setCardsData] = useState();
   const [loadedCardData, setLoadedCardData] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [hoveredImages, setHoveredImages] = useState([]);
 
+
   useEffect(() => {
-    const fetchCardData = async () => {
-      const response = await fetch("/api/cards");
-      const data = await response.json();
-
-      console.log(data);
-      setCardData(data);
-      setLoadedCardData(true);
-    };
-
-    fetchCardData();
+    dispatch(fetchCards());
   }, []);
 
-  console.log(cardData);
+
+
+
+  console.log(loadedCardData);
 
   const addCardHandler = () => {
     console.log("adding another card");
@@ -101,11 +107,81 @@ const MyCards = () =>{
     setIsHovered(false);
   };
 
-  
+  /* --------------------------------- MODAL ---------------------------------  */
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
-  console.log(isHovered);
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
+  const [searchString, setSearchString] = useState("");
+
+  const searchInputHandler = (e) => {
+    setSearchString(e.target.value);
+  };
+
+  const searchSubmitHandler = (e) => {
+    e.preventDefault();
+
+    console.log(searchString);
+  };
+
   return (
     <Layout>
+      <Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
+        <div className={modal.container} onClick={closeModal}>
+          <div className={modal.modalContainer}>
+            <div className={modal.cardSearchContainer}>
+              <button onClick={closeModal} className={modal.closeBtn}>
+                X
+              </button>
+
+              <div className={modal.searchField}>
+                <input
+                  type="search"
+                  placeholder="Suche"
+                  onChange={searchInputHandler}
+                ></input>
+                <button
+                  onClick={searchSubmitHandler}
+                  className={modal.searchHandler}
+                >
+                  🔎
+                </button>
+              </div>
+            </div>
+
+            <div className={modal.searchOutputField}>
+              <ul className={modal.searchOutput}>
+                <li> search output item </li>
+                <li> search output item </li>
+                <li> search output item </li>
+                <li> search output item </li>
+                <li> search output item </li>
+                <li> search output item </li>
+                <li> search output item </li>
+                <li> search output item </li>
+                <li> search output item </li>
+                <li> search output item </li>
+                <li> search output item </li>
+                <li> search output item </li>
+                <li> search output item </li>
+                <li> search output item </li>
+
+                <li> search output item </li>
+                <li> search output item </li>
+              </ul>
+            </div>
+
+            <div className={modal.searchMap}></div>
+          </div>
+        </div>
+      </Modal>
+
       <div className={styles.container}>
         <h1> MEINE KARTEN </h1>
         <div className={styles.cartsField}>
@@ -121,13 +197,17 @@ const MyCards = () =>{
               <FontAwesomeIcon icon={faAnglesRight} className={styles.icon} />
             </button>
           </div>
-          <button className={styles.addBtn} onClick={addCardHandler}>
+          <button className={styles.addBtn} onClick={openModal}>
             <FontAwesomeIcon icon={faPlus} />
           </button>
 
           <div className={styles.carts}>
-            {loadedCardData &&
-              cardData.map((card, idx) => (
+            {cards.map((card, idx) => (
+              <Link
+                key={card.id}
+                href={`/meine-karten/${card.id}`}
+                className={styles.imageLink}
+              >
                 <div className={styles.cart} key={card.id}>
                   <Image
                     src={card.img}
@@ -154,7 +234,8 @@ const MyCards = () =>{
                     {card.name}
                   </p>
                 </div>
-              ))}
+              </Link>
+            ))}
           </div>
         </div>
       </div>

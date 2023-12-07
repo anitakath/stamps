@@ -3,7 +3,6 @@
 .container{
     width: 100vw;
     height: 82vh;
-    background-color: var(--background-feldgrau);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -14,13 +13,12 @@
 .container h1{
     position: absolute;
     top: 20px;
-    color: var(--foreground-pale-dogwood);
+    color: var(--font-rose-red);
 }
 
 .cartsField{
     width: 90vw;
     height: 80%;
-    background-color: rgba(255,255,255, 0.4);
     position: relative;
 }
 
@@ -55,30 +53,31 @@
     left: 5px;
 }
 
-.addBtn:hover, .filter:hover{
+.addBtn:hover, .filter:hover, .icon:hover{
     transition: 0.4s ease;
-    color: var(--font-rosy-brown);
+    color: var(--font-rose-red);
 }
 
 
 .carts{
-     height: 600px;
-     overflow: scroll;
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     
+    height: 500px;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.imageLink{
+    width: 100vw;
 }
 
 .cart{
-    border: 2px solid var(--background-feldgrau);
-    box-shadow: 0px 1px 10px grey;
+    box-shadow: 0px 2px 4px grey;
     width: 90%;
     height: 100px;
     margin: 10px 0px;
     position: relative;
     cursor: pointer;
-
 }
 
 
@@ -124,4 +123,113 @@
     display: none;
 }
 
+
+
+
+
+
+
+
+
+/* ---------------------------------------- [id].js ---------------------------------------- */
+
+
+
+.goBackLink{
+    margin-left: 10px;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.goBackLink:hover{
+    transition: 0.4s ease;
+    color: var(--font-rose-red);
+}
+
+
+.individualCardContainer{
+    min-height: 82vh;
+    display: flex;
+    justify-content: center;
+
+}
+
+.individualCard{
+    height: 75vh;
+    width: 80vw;
+
+    border: 2px solid var(--background-feldgrau);
+   
+}
+
+.cardTitleField{
+    border-bottom: 2px solid var(--background-feldgrau);
+    height: 20%;
+    padding: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.cardTitleField h1{
+    z-index: 100;
+    font-size: 1.3rem;
+    font-weight: bolder;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    border-radius: 10px;
+    background: rgba(255,255,255, 0.4)
+
+}
+
+.image{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.stampsField{
+    height: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-bottom: 2px solid var(--background-feldgrau);
+    position: relative;
+}
+
+.stampsFirstRow, .stampsSecondRow{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  
+    
+}
+
+.stamp{
+    background-color: var(--foreground-pale-dogwood);
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: grey;
+    cursor: pointer;
+    border-bottom: 3px solid var(--background-feldgrau);
+    border-top: 3px solid var(--background-feldgrau);
+    
+}
+
+.cardInfos{
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 

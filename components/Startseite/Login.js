@@ -85,7 +85,7 @@ const Login = () =>{
             LOGIN
           </button>
           <p>
-            <em> noch nicht registriert? <Link href="/registrieren" className={styles.link}> klicke hier </Link></em>
+            <em> noch nicht registriert? <Link href="/register" className={styles.link}> klicke hier </Link></em>
           </p>
         </form>
       </div>
